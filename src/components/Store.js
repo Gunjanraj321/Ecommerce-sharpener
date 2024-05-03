@@ -1,6 +1,8 @@
-
+import Card from "./Card";
 const Store = () => {
-    return <div>Store</div>
+    return <div>
+        <Card />
+    </div>
 }
 
 export default Store
