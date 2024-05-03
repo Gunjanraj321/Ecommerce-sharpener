@@ -8,7 +8,7 @@ const Header = () => {
             <ul className="font-bold justify-center">
                 <li className=""><Link to="/">HOME</Link></li>
                 <li><Link to="/store">STORE</Link></li>
-                <li>ABOUT</li>
+                <li><Link to="/about">ABOUT</Link></li>
                 <li><Link to="/cart">Cart</Link></li>
             </ul>
 
