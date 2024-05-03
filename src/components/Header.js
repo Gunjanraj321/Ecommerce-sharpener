@@ -1,23 +1,17 @@
 import { useState } from "react";
 import Cart from "./Cart";
-
+import { Link } from "react-router-dom";
 const Header = () => {
-
-    const [showCart, setShowCart] = useState([false]);
-
-    const handleCart = ()=>{
-        setShowCart(!showCart)
-    }
 
     return (
         <div >
             <ul className="font-bold justify-center">
-                <li className="">HOME</li>
-                <li>STORE</li>
+                <li className=""><Link to="/">HOME</Link></li>
+                <li><Link to="/store">STORE</Link></li>
                 <li>ABOUT</li>
-                <button onClick={handleCart}>Cart</button>
+                <li><Link to="/cart">Cart</Link></li>
             </ul>
-            {showCart && <Cart/>}
+
         </div>
     )
 }
