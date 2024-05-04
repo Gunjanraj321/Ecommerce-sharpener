@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, removeItem } from "../utils/cartSlice";
+import { clearCart, removeItem } from "../redux/cartSlice";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -30,7 +30,7 @@ const Cart = () => {
           <h2>{item.title}</h2>
           <h3>₹ {item.price}</h3>
           <img src={item.imageUrl} alt="img" />
-          <h3>{item.quantity}</h3>
+          <h3>quantity : {item.quantity}</h3>
           <button onClick={() => handleRemoveItem(item.id)}>Delete</button>
         </div>
       ))}

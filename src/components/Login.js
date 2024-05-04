@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { login } from "../utils/authSlice";
+import { isAuth, login } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -30,6 +30,7 @@ const Login = () => {
 
       navigate("/");
       dispatch(login(response.data));
+      dispatch(isAuth(true));
     } catch (error) {
       console.error(error);
     }

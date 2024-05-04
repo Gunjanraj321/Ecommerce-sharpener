@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { addItem } from "../redux/cartSlice";
 
 const productsArr = [
   {
@@ -31,7 +31,7 @@ const productsArr = [
   },
 ];
 
-const Card = () => {
+const StoreProduct = () => {
   const dispatch = useDispatch();
 
   const handleAddItem = (item) => {
@@ -52,4 +52,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default StoreProduct;

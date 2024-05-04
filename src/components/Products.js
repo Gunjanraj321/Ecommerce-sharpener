@@ -37,7 +37,7 @@ const tours = [
   },
 ];
 
-const Tour = () => {
+const Products = () => {
   return (
     <div>
       <span> TOURS </span>
@@ -53,4 +53,4 @@ const Tour = () => {
   );
 };
 
-export default Tour;
+export default Products;

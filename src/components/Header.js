@@ -2,7 +2,7 @@ import { useState } from "react";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {isAuth, login} from "../utils/authSlice";
+import {isAuth, login} from "../redux/authSlice";
 
 const Header = () => {
     const isAuthenticated = useSelector((state) => state.auth.user);
