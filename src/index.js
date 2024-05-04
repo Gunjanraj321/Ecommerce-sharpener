@@ -4,7 +4,6 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/appStore";
-// import LoginTime from "./components/LoginTime";
 import { PersistGate } from "redux-persist/integration/react";
 import persistStore from "redux-persist/es/persistStore";
 
@@ -15,7 +14,6 @@ root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persister}>
     <Router>
-      {/* <LoginTime /> */}
       <App />
     </Router>
     </PersistGate>

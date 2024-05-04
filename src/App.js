@@ -38,8 +38,8 @@ const App = () => {
         <Route path="/" element={verifyUser ?  <Home /> : <Navigate to="/login" /> } />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/store" element={<StoreProduct />} />
+        <Route path="/cart" element={verifyUser ?  <Cart /> : <Navigate to="/login" /> } />
+        <Route path="/store" element={verifyUser ?  <StoreProduct /> : <Navigate to="/login" /> }/>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/update" element={verifyUser ? <UpdatePassword token={userLoginData?.token} /> : <Navigate to={"/login"}/>} />
