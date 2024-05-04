@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -15,7 +14,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   // handleChange function for form
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -29,6 +27,7 @@ const Login = () => {
         formData
       );
       console.log(response.data);
+
       navigate("/");
       dispatch(login(response.data));
     } catch (error) {

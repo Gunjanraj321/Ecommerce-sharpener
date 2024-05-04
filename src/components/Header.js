@@ -2,14 +2,17 @@ import { useState } from "react";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {login} from "../utils/authSlice";
+import {isAuth, login} from "../utils/authSlice";
 
 const Header = () => {
     const isAuthenticated = useSelector((state) => state.auth.user);
-    const dispatch = useDispatch
+    const dispatch = useDispatch();
 
     const handleLogout = () => {
-        if(isAuthenticated !== null) dispatch(login(null));
+        if(isAuthenticated !== null){ 
+          dispatch(login(null));
+          dispatch(isAuth(false));
+        }
       };
     return (
         <div >
