@@ -10,7 +10,7 @@ const Auth = () => {
 
   const checkToeknExpiration = async () => {
     try {
-      if (isAuthenticated.token) {
+      if (isAuthenticated?.token) {
         const response = await axios.post("http://localhost:3000/api/auth", {
           token: isAuthenticated.token,
         });
@@ -18,10 +18,10 @@ const Auth = () => {
         if (response.data.success === true) {
           dispatch(isAuth(true));
         } 
-        // else {
-        //   dispatch(isAuth(false));
-        //   dispatch(login(null));
-        // }
+        else {
+          dispatch(isAuth(false));
+          dispatch(login(null));
+        }
       }
     } catch (err) {
       dispatch(isAuth(false));

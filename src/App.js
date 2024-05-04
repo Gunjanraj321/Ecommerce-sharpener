@@ -11,24 +11,24 @@ import { useSelector } from "react-redux";
 import Auth from "./hooks/useAuth";
 import { useEffect } from "react";
 import StoreProduct from "./components/StoreProduct";
-
+import UpdatePassword from "./components/UpdatePassword";
 
 const App = () => {
 
-  const isAuthenticated = useSelector((state)=>state.auth.user);
-  // console.log(isAuthenticated.token);
+  const userLoginData = useSelector((state)=>state.auth.user);
+
   const verifyUser = useSelector((state)=>state.auth.isAuth);
 
   const isAuth = Auth()
   useEffect(()=>{
-    if(isAuthenticated?.token){
+    if(userLoginData?.token){
       const interval = setInterval(() => {
         isAuth();
     }, 5 * 60 * 1000);
 
     return () => clearInterval(interval);
     }
-  },[isAuthenticated])
+  },[userLoginData])
 
   
   return (
@@ -42,6 +42,7 @@ const App = () => {
         <Route path="/store" element={<StoreProduct />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/update" element={verifyUser ? <UpdatePassword token={userLoginData?.token} /> : <Navigate to={"/login"}/>} />
       </Routes>
       <Footer />
     </div>
