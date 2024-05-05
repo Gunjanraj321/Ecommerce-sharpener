@@ -12,8 +12,15 @@ import Auth from "./hooks/useAuth";
 import { useEffect } from "react";
 import StoreProduct from "./components/StoreProduct";
 import UpdatePassword from "./components/UpdatePassword";
+import { useState } from "react";
 
 const App = () => {
+
+  const [item, setItem] = useState(false);
+
+  const cartClick = () => {
+    setItem(!item);
+  }
 
   const userLoginData = useSelector((state)=>state.auth.user);
 
@@ -38,8 +45,8 @@ const App = () => {
         <Route path="/" element={verifyUser ?  <Home /> : <Navigate to="/login" /> } />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cart" element={verifyUser ?  <Cart /> : <Navigate to="/login" /> } />
-        <Route path="/store" element={verifyUser ?  <StoreProduct /> : <Navigate to="/login" /> }/>
+        <Route path="/cart" element={verifyUser ?  <Cart item={item} /> : <Navigate to="/login" /> } />
+        <Route path="/store" element={verifyUser ?  <StoreProduct cartClick={cartClick} /> : <Navigate to="/login" /> }/>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/update" element={verifyUser ? <UpdatePassword token={userLoginData?.token} /> : <Navigate to={"/login"}/>} />
